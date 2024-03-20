@@ -14,8 +14,8 @@ app = Flask(__name__)
 #---------------
 # GCS setup
 #---------------
-#gcs = storage.Client()
-#bucket = gcs.get_bucket(os.environ.get('QRCODE_APP_GCS', 'qrcode-test'))
+gcs = storage.Client()
+bucket = gcs.get_bucket(os.environ.get('QRCODER_GCS_BUCKET', 'qrcode-test'))
 
 
 #---------------

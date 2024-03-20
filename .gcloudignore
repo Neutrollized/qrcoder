@@ -1,0 +1,10 @@
+.gcloudignore
+.git
+.gitignore
+.dockerignore
+
+*.md
+*.tf
+devserver.sh
+src/*.md
+terraform/
