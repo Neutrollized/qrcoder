@@ -50,8 +50,6 @@ steps:
   - '80'
   - '--service-account'
   - '${_SERVICE_ACCOUNT_EMAIL}'
-#  - '--set-env-vars'
-#  - 'GOOGLE_PROJECT=${PROJECT_ID},QRCODER_GCS_BUCKET=${_GCS_BUCKET_NAME}'
   - '--timeout'
   - '300'
   env:
