@@ -45,8 +45,8 @@ def generate_qrcode(url):
   blob.upload_from_filename(output_filename)
   os.remove(output_filename)
   blob.make_public()
-
-  return blob.public_url, output_filename
+  
+  return blob.public_url
 
 
 #---------------
@@ -64,20 +64,20 @@ def index():
   if request.form.get('skipurlvalidate') == 'checked':
     # checkbox is checked, skip URL validate
     # pass text as is
-    public_url, filename = generate_qrcode(text)
+    public_url = generate_qrcode(text)
     with tempfile.NamedTemporaryFile() as temp:
       localfile, header = urllib.request.urlretrieve(public_url)
       with Image.open(localfile) as im:
-        return render_template('index.html', url=text, filename=filename)
+        return render_template('index.html', url=text, filename=public_url)
   else:
     # fix URL and validate
     url = fix_url(text)
     if validators.url(url):
-      public_url, filename = generate_qrcode(url)
+      public_url = generate_qrcode(url)
       with tempfile.NamedTemporaryFile() as temp:
         localfile, header = urllib.request.urlretrieve(public_url)
         with Image.open(localfile) as im:
-          return render_template('index.html', url=url, filename=filename)
+          return render_template('index.html', url=url, filename=public_url)
     else:
       return render_template('index.html', url='INVALID URL')
 
