@@ -8,8 +8,8 @@ RUN pip install -r requirements.txt \
   && apt-get clean
 
 RUN mkdir /app
-COPY src/ /app/
-
 WORKDIR /app
+
+COPY src/ /app/
 
 CMD ["gunicorn", "--bind", "0.0.0.0:80", "main:app"]
