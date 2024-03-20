@@ -51,7 +51,7 @@ steps:
   - '--service-account'
   - '${_SERVICE_ACCOUNT_EMAIL}'
   - '--set-env-vars'
-  - 'GOOGLE_PROJECT=${PROJECT_ID},QRCODER_APP_GCS=${_GCS_BUCKET_NAME}'
+  - 'GOOGLE_PROJECT=${PROJECT_ID},QRCODER_GCS_BUCKET=${_GCS_BUCKET_NAME}'
   - '--timeout'
   - '300'
 serviceAccount: '${PROJECT_NUMBER}@cloudbuild.gserviceaccount.com'

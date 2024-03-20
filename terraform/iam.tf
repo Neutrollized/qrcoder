@@ -3,9 +3,17 @@ resource "google_service_account" "qrcoder_sa" {
   display_name = "QRCoder app service account"
 }
 
-resource "google_storage_bucket_iam_binding" "bucket_iam_binding" {
+resource "google_storage_bucket_iam_binding" "bucket_iam_bucket_reader" {
   bucket = google_storage_bucket.qrcoder_gcs.name
-  role   = "roles/storage.objectAdmin"
+  role   = "roles/storage.legacyBucketReader"
+  members = [
+    "serviceAccount:${google_service_account.qrcoder_sa.email}",
+  ]
+}
+
+resource "google_storage_bucket_iam_binding" "bucket_iam_object_user" {
+  bucket = google_storage_bucket.qrcoder_gcs.name
+  role   = "roles/storage.objectUser"
   members = [
     "serviceAccount:${google_service_account.qrcoder_sa.email}",
   ]
