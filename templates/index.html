@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Free QR Code App</title>
+</head>
+<body>
+  <h1>Enter URL</h1>
+  <form action="/" method="post">
+    <input type="text" id="text" name="text">
+    <input type="submit" value="Submit">
+    <br>
+    <input type="checkbox" id="checkbox" name="skipurlvalidate" value="checked">
+    <label for="checkbox">Skip URL validate</label>
+  </form>
+
+  {% if filename %}
+  <div style="padding:10px;">
+    <img src="{{ 'https://storage.googleapis.com/qrcode-test/' + filename }}">
+  </div>
+  {% endif %}
+
+  {% if url %}
+    <p>your url -->  <b>{{ url }}</b></p>
+  {% endif %}
+</body>
+</html>
