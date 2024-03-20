@@ -11,9 +11,9 @@ resource "google_storage_bucket_iam_binding" "bucket_iam_bucket_reader" {
   ]
 }
 
-resource "google_storage_bucket_iam_binding" "bucket_iam_object_user" {
+resource "google_storage_bucket_iam_binding" "bucket_iam_object_admin" {
   bucket = google_storage_bucket.qrcoder_gcs.name
-  role   = "roles/storage.objectUser"
+  role   = "roles/storage.objectAdmin"
   members = [
     "serviceAccount:${google_service_account.qrcoder_sa.email}",
   ]

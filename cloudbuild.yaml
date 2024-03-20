@@ -50,10 +50,13 @@ steps:
   - '80'
   - '--service-account'
   - '${_SERVICE_ACCOUNT_EMAIL}'
-  - '--set-env-vars'
-  - 'GOOGLE_PROJECT=${PROJECT_ID},QRCODER_GCS_BUCKET=${_GCS_BUCKET_NAME}'
+#  - '--set-env-vars'
+#  - 'GOOGLE_PROJECT=${PROJECT_ID},QRCODER_GCS_BUCKET=${_GCS_BUCKET_NAME}'
   - '--timeout'
   - '300'
+  env:
+  - 'GOOGLE_PROJECT=${PROJECT_ID}'
+  - 'QRCODER_GCS_BUCKET=${_GCS_BUCKET_NAME}'
 serviceAccount: '${PROJECT_NUMBER}@cloudbuild.gserviceaccount.com'
 images:
 - '${_GAR_REGION}-docker.pkg.dev/${PROJECT_ID}/${_GAR_REPO_NAME}/qrcoder:${COMMIT_SHA}'
