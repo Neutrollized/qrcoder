@@ -10,7 +10,7 @@
 
   # Sets environment variables in the workspace
   env = {
-    QRCODE_APP_GCS = "qrcode-test";
+    QRCODER_GCS_BUCKET = "qrcode-test";
     PORT = "80";
   };
 
