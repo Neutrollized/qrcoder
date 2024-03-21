@@ -27,6 +27,8 @@ resource "google_storage_bucket" "qrcoder_gcs" {
   location      = var.location
   force_destroy = var.force_destroy
 
+  # I didn't want to make the bucket itself public
+  # and opted to for the ability to make objects in it public instead 
   uniform_bucket_level_access = false
 
   lifecycle_rule {
