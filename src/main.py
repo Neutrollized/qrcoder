@@ -23,7 +23,9 @@ bucket = gcs.get_bucket(os.environ.get('QRCODER_GCS_BUCKET'))
 #---------------
 def fix_url(url):
   url = url.lower()
-  if not url.startswith("https://"):
+  if url.startswith("http://"):
+    return url
+  elif not url.startswith("https://"):
     return 'https://' + url
   else:
     return url
