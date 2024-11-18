@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Using Compute Engine default service account as Cloud Build service account as per [changes](https://cloud.google.com/build/docs/cloud-build-service-account-updates)
 - Updated IAM to include new roles required for logging and building using new service account
 - Updated base Docker image from `python:3.11-alpine` to `python:3.13-alpine`
-- Updated Python package requirements: **Flask** from `3.0.2` to `3.0.3`, **validators** from `0.23.1` to `0.23.2`, and **pillow** from `10.2.0` to `10.4.0`
+- Updated Python package requirements: **Flask** from `3.0.2` to `3.0.3`, **gunicorn** from `21.2.0` to `22.0.0`, **validators** from `0.23.1` to `0.23.2`, and **pillow** from `10.2.0` to `10.4.0`
 - Updated **google** and **google-beta** providers from `~> 4.0` to `~> 6.0`
 ### Fixed
 - The `env` field within the Cloud Run deploy step was not being honored, and hence environment variables that are to be passed to the container will be done via `--set-env-vars` instead (part of `gcloud run deploy` option)
