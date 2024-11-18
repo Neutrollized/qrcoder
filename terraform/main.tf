@@ -48,8 +48,9 @@ resource "google_storage_bucket" "qrcoder_gcs" {
 resource "google_cloudbuild_trigger" "docker_build_trigger" {
   name        = "qrcoder-cloudrun-build-and-deploy"
   description = "QRCoder Build and Deploy - Terraform managed"
+  filename    = "cloudbuild.yaml"
 
-  filename = "cloudbuild.yaml"
+  service_account = "${data.google_project.project.id}/serviceAccounts/${data.google_project.project.number}-compute@developer.gserviceaccount.com"
 
   github {
     owner = var.github_repo_owner
